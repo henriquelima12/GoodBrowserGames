@@ -1,0 +1,21 @@
+a {
+    color: #fff !important;
+}
+.active {
+    font-weight: 500;
+}
+.categories {
+    background: #f0f0f0;
+    padding: 1.5vh 3vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 4vh;
+    span {
+        font-size: 0.8em;
+    }
+    span:hover {
+        cursor: pointer;
+        font-weight: 600;
+    }
+}

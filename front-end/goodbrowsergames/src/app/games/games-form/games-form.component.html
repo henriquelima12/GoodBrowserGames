@@ -1,0 +1,59 @@
+<h4 class="mt-4">
+    {{ title }}
+</h4>
+<div class="mt-4">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nome" [(ngModel)]="game.nome">
+    <div class="alert alert-danger" role="alert" *ngIf="!verifyField(game.nome) && sended">
+        Campo inválido. Preencha todas as informações corretamente!
+    </div>
+</div>
+<div class="mt-4">
+    <label for="categoria" class="form-label">Categoria</label>
+    <select class="form-select" [(ngModel)]="game.categoria">
+        <option value="Strategy">Strategy</option>
+        <option value="Shooter">Shooter</option>
+        <option value="Puzzle">Puzzle</option>
+        <option value="Arcade">Arcade</option>
+        <option value="Role Playing Game (RPG)">Role Playing Game (RPG)</option>
+        <option value="Sports">Sports</option>
+        <option value="Action">Action</option>
+        <option value="Adventure">Adventure</option>
+    </select>
+    <div class="alert alert-danger" role="alert" *ngIf="!verifyField(game.categoria) && sended">
+        Campo inválido. Preencha todas as informações corretamente!
+    </div>
+</div>
+<div class="mt-4">
+    <label for="urlAcesso" class="form-label">Url de acesso</label>
+    <input type="text" class="form-control" id="urlAcesso" [(ngModel)]="game.urlAcesso">
+    <div class="alert alert-danger" role="alert" *ngIf="!verifyField(game.urlAcesso) && sended">
+        Campo inválido. Preencha todas as informações corretamente!
+    </div>
+</div>
+<div class="mt-4">
+    <label for="urlVideo" class="form-label">Url de vídeo</label>
+    <input type="text" class="form-control" id="urlVideo" [(ngModel)]="game.urlVideo">
+    <div class="alert alert-danger" role="alert" *ngIf="!verifyField(game.urlVideo) && sended">
+        Campo inválido. Preencha todas as informações corretamente!
+    </div>
+</div>
+<div class="mt-4">
+    <label for="descricao" class="form-label">Descrição</label>
+    <input type="text" class="form-control" id="descricao" [(ngModel)]="game.descricao">
+    <div class="alert alert-danger" role="alert" *ngIf="!verifyField(game.descricao) && sended">
+        Campo inválido. Preencha todas as informações corretamente!
+    </div>
+</div>
+<div class="mt-4">
+    <label for="imagem" class="form-label">Imagem</label>
+    <input type="file" class="form-control" id="imagem" (change)="readFile($event)">
+    <div class="alert alert-danger" role="alert" *ngIf="!verifyField(img) && sended">
+        Campo inválido. Preencha todas as informações corretamente!
+    </div>
+</div>
+<div class="col-md-12 mt-5 mb-5 d-flex justify-content-between">
+    <button type="submit" class="btn btn-secondary">Voltar</button>
+    <button type="submit" class="btn btn-primary" (click)="save()" *ngIf="!showEdit">Cadastrar</button>
+    <button type="submit" class="btn btn-primary" (click)="update(game.id)" *ngIf="showEdit">Atualizar</button>
+</div>

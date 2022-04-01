@@ -1,0 +1,13 @@
+<h4 class="mt-4" *ngIf="title.length > 0">
+    {{ title }}
+</h4>
+<div class="row mt-5" *ngIf="games.length > 0">
+    <div class="col-md-auto" *ngFor="let game of games">
+        <div>
+            <img [src]="game.imagem" alt="">
+            <span>{{ game.nome }}</span>
+            <small>{{ game.categoria }}</small>
+        </div>
+    </div>
+</div>
+
