@@ -1,0 +1,25 @@
+<div class="box-game mt-5">
+    <img [src]="game.imagem">
+    <div>
+        <h4>{{ game.nome }}</h4>
+        <small>{{ game.nome }}</small>
+        <p>{{ game.nome }}</p>
+        <a [href]="game.urlAceso"><u>Acesse aqui o browser game</u></a>
+    </div>
+    <h2>Nota: 4,5</h2>
+</div>
+<div class="box-avaliation mt-5">
+    <div class="add-avaliation mt-5 mb-3">
+        <label for="comentario" class="form-label">Adicione um comentário</label>
+        <textarea class="form-control" placeholder="Comentário" id="comentario"></textarea>
+    </div>
+    <div class="avaliation-user" *ngFor="let avaliacao of avaliacoes">
+        <div>
+            <h6>{{ avaliacao.nome }}</h6>
+            <p>{{ avaliacao.texto }}</p>
+        </div>
+        <small>Nota: {{ avaliacao.estrelas }}</small>
+        <u>Marcar como útil: {{ avaliacao.marcados }}</u>
+    </div>
+</div>
+

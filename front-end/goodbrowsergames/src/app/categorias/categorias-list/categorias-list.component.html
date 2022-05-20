@@ -1,0 +1,40 @@
+<div class="table-responsive">
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let categoria of categorias">
+                <td><span>{{ categoria.nome.length > 20 ? categoria.nome.substring(0, 20).concat('...') : categoria.nome }}</span></td>
+                <td>
+                    <button class="btn btn-primary align-items-center" [routerLink]="['/categorias', categoria.id]"><i
+                            class="bi bi-pencil-square"></i></button>
+                    <button class="btn btn-danger align-items-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
+                            class="bi bi-trash" (click)="openModalDelete(categoria.id)"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Excluir categoria</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente excluir a categoria?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="delete()">Sim</button>
+            </div>
+        </div>
+    </div>
+</div>

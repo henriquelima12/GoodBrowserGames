@@ -27,7 +27,7 @@ export class GamesFormComponent implements OnInit {
     private gamesService: GamesService,
     private route: ActivatedRoute,
     private router: Router
-  ) { 
+  ) {
   }
 
   ngOnInit(): void {
@@ -45,7 +45,6 @@ export class GamesFormComponent implements OnInit {
             err => {
               this.title = 'Novo game';
               this.showEdit = false;
-              console.log(err);
             }
           );
       }
@@ -57,14 +56,12 @@ export class GamesFormComponent implements OnInit {
     this.game.imagem = this.img;
     if (this.validForm()) {
       this.gamesService.saveGame(this.game)
-      .subscribe(
-        res => {
-          console.log(res)
-          this.router.navigate(['games']);
-        }
-      );
+        .subscribe(
+          res => {
+            this.router.navigate(['games']);
+          }
+        );
     }
-    console.log(this.game);
   }
 
   update(id: any) {
@@ -72,12 +69,11 @@ export class GamesFormComponent implements OnInit {
     this.game.imagem = this.img;
     if (this.validForm()) {
       this.gamesService.updateGame(id, this.game)
-      .subscribe(
-        res => {
-          console.log(res)
-          this.router.navigate(['']);
-        }
-      );
+        .subscribe(
+          res => {
+            this.router.navigate(['']);
+          }
+        );
     }
   }
 
@@ -101,7 +97,7 @@ export class GamesFormComponent implements OnInit {
   validForm(): boolean {
     let valid: boolean = true;
     if (!this.verifyField(this.game.nome) || !this.verifyField(this.game.categoria) || !this.verifyField(this.game.urlAcesso) ||
-      !this.verifyField(this.game.urlVideo) || !this.verifyField(this.game.descricao) || !this.verifyField(this.img)) {
+      !this.verifyField(this.game.descricao) || !this.verifyField(this.img)) {
       valid = false;
     }
     return valid;

@@ -3,6 +3,7 @@ package br.mack.goodbrowsergames.api.resource;
 import java.util.List;
 import java.util.Optional;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -43,7 +44,17 @@ public class GameResource {
 	public ResponseEntity<List<Game>> findByCategory(@RequestParam("categoria")String categoria){
         return ResponseEntity.status(HttpStatus.OK).body(gameRepository.findByCategoriaContaining(categoria));
     }
-
+    
+    @GetMapping("/api/games/maisavaliados")
+	public ResponseEntity<List<JSONObject>> findMaisAvaliados(){
+        return ResponseEntity.status(HttpStatus.OK).body(gameRepository.findMaisAvaliados());
+    }
+    
+    @GetMapping("/api/games/maiornota")
+	public ResponseEntity<List<JSONObject>> findMaiorNota(){
+        return ResponseEntity.status(HttpStatus.OK).body(gameRepository.findMaiorNota());
+    }
+    
     @PostMapping("/api/games")
     public ResponseEntity<Game> create(@RequestBody Game game){
     	return ResponseEntity.status(HttpStatus.CREATED).body(gameRepository.save(game));

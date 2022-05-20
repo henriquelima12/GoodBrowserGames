@@ -57,4 +57,8 @@ export class GamesComponent implements OnInit {
       )
   }
 
+  setGame(game) {
+    sessionStorage.setItem('game', game);
+  }
+
 }

@@ -1,0 +1,50 @@
+<div class="table-responsive">
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Username</th>
+                <th scope="col">Senha</th>
+                <th scope="col">Data de nascimento</th>
+                <th scope="col">Estado</th>
+                <th scope="col">País</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let membro of membros">
+                <td><span>{{ membro.nome.length > 20 ? membro.nome.substring(0, 20).concat('...') : membro.nome }}</span></td>
+                <td><span>{{ membro.username.length > 20 ? membro.username.substring(0, 20).concat('...') : membro.username }}</span></td>
+                <td><span>{{ membro.senha.length > 20 ? membro.senha.substring(0, 20).concat('...') : membro.senha }}</span></td>
+                <td><span>{{ membro.dataNascimento.length > 20 ? membro.dataNascimento.substring(0, 20).concat('...') : membro.dataNascimento }}</span></td>
+                <td><span>{{ membro.estado.length > 20 ? membro.estado.substring(0, 20).concat('...') : membro.estado }}</span></td>
+                <td><span>{{ membro.pais.length > 20 ? membro.pais.substring(0, 20).concat('...') : membro.pais }}</span></td>
+                <td class="action-buttons">
+                    <button class="btn btn-primary align-items-center" [routerLink]="['/membros', membro.id]"><i
+                            class="bi bi-pencil-square"></i></button>
+                    <button class="btn btn-danger align-items-center" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
+                            class="bi bi-trash" (click)="openModalDelete(membro.id)"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Excluir membro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Deseja realmente excluir o membro?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="delete()">Sim</button>
+            </div>
+        </div>
+    </div>
+</div>

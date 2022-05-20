@@ -1,0 +1,28 @@
+.box-game {
+    display: flex;
+    justify-content: flex-start;
+    gap: 6vh;
+    img{
+        width: 400px;
+        height: 300px;
+    }
+    p {
+        margin-top: 5vh;
+    }
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+}
+
+.box-avaliation {
+    .avaliation-user {
+        display: flex;
+        gap: 6vh;
+        align-items: center;
+        u {
+            cursor: pointer;
+        }
+    }
+}

@@ -1,0 +1,50 @@
+<h4 class="mt-4">
+    {{ title }}
+</h4>
+<div class="mt-4">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nome" [(ngModel)]="membro.nome">
+    <div class="alert alert-danger" role="alert" *ngIf="!verifyField(membro.nome) && sended">
+        Campo inválido. Preencha todas as informações corretamente!
+    </div>
+</div>
+<div class="mt-4">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" id="username" [(ngModel)]="membro.username">
+    <div class="alert alert-danger" role="alert" *ngIf="!verifyField(membro.username) && sended">
+        Campo inválido. Preencha todas as informações corretamente!
+    </div>
+</div>
+<div class="mt-4">
+    <label for="senha" class="form-label">Senha</label>
+    <input type="password" class="form-control" id="senha" [(ngModel)]="membro.senha">
+    <div class="alert alert-danger" role="alert" *ngIf="!verifyField(membro.senha) && sended">
+        Campo inválido. Preencha todas as informações corretamente!
+    </div>
+</div>
+<div class="mt-4">
+    <label for="dataNascimentoclass" class="form-label">Data de nascimento</label>
+    <input type="date" class="form-control" id="dataNascimento" [(ngModel)]="membro.dataNascimento">
+    <div class="alert alert-danger" role="alert" *ngIf="!verifyField(membro.dataNascimento) && sended">
+        Campo inválido. Preencha todas as informações corretamente!
+    </div>
+</div>
+<div class="mt-4">
+    <label for="estado" class="form-label">Estado</label>
+    <input type="text" class="form-control" id="estado" [(ngModel)]="membro.estado">
+    <div class="alert alert-danger" role="alert" *ngIf="!verifyField(membro.estado) && sended">
+        Campo inválido. Preencha todas as informações corretamente!
+    </div>
+</div>
+<div class="mt-4">
+    <label for="pais" class="form-label">País</label>
+    <input type="text" class="form-control" id="pais" [(ngModel)]="membro.pais">
+    <div class="alert alert-danger" role="alert" *ngIf="!verifyField(membro.pais) && sended">
+        Campo inválido. Preencha todas as informações corretamente!
+    </div>
+</div>
+<div class="col-md-12 mt-5 mb-5 d-flex justify-content-between">
+    <button type="submit" class="btn btn-secondary">Voltar</button>
+    <button type="submit" class="btn btn-primary" (click)="save()" *ngIf="!showEdit">Cadastrar</button>
+    <button type="submit" class="btn btn-primary" (click)="update(membro.id)" *ngIf="showEdit">Atualizar</button>
+</div>

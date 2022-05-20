@@ -4,6 +4,15 @@ a {
 .active {
     font-weight: 500;
 }
+nav {
+    ul {
+        li {
+            a {
+                font-size: 1.2em;
+            }
+        }
+    }
+}
 .categories {
     background: #f0f0f0;
     padding: 1.5vh 3vh;
@@ -12,7 +21,7 @@ a {
     flex-wrap: wrap;
     gap: 4vh;
     span {
-        font-size: 0.8em;
+        font-size: 1em;
     }
     span:hover {
         cursor: pointer;

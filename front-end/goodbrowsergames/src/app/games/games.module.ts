@@ -7,6 +7,7 @@ import { GamesComponent } from './games/games.component';
 import { GamesFormComponent } from './games-form/games-form.component';
 import { GamesListComponent } from './games-list/games-list.component';
 import { GamesRoutingModule } from './games-routing.module';
+import { GamePageComponent } from './game-page/game-page.component';
 
 
 
@@ -14,7 +15,8 @@ import { GamesRoutingModule } from './games-routing.module';
   declarations: [
     GamesComponent,
     GamesFormComponent,
-    GamesListComponent
+    GamesListComponent,
+    GamePageComponent
   ],
   imports: [
     CommonModule,

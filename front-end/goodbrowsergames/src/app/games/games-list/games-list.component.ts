@@ -22,7 +22,6 @@ export class GamesListComponent implements OnInit {
     this.gamesService.getGames()
       .subscribe(
         res => {
-          console.log(res);
           this.games = res;
         }
       )
@@ -36,7 +35,6 @@ export class GamesListComponent implements OnInit {
     this.gamesService.deleteGame(this.id)
       .subscribe(
         res => {
-          console.log(res);
           this.router.navigate(['/']);
         }
       );

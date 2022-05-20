@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GamePageComponent } from './game-page/game-page.component';
 import { GamesFormComponent } from './games-form/games-form.component';
 import { GamesListComponent } from './games-list/games-list.component';
 import { GamesComponent } from './games/games.component';
@@ -29,6 +30,10 @@ const routes: Routes = [
         path: ':id',
         component: GamesFormComponent
     },
+    {
+        path: 'gamepage/:id',
+        component: GamePageComponent
+    }
 ];
 
 @NgModule({

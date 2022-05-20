@@ -6,34 +6,40 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GamesService {
 
+  API_URL = 'http://localhost:8081';
+
   constructor(private http: HttpClient) { }
 
   getGames(){
-    return this.http.get<any[]>(`https://goodbrowsergames-ffhl.herokuapp.com/api/games`);
+    return this.http.get<any[]>(`${this.API_URL}/api/games`);
   }
 
   getGamesByNome(nome: any){
-    return this.http.get<any[]>(`https://goodbrowsergames-ffhl.herokuapp.com/api/games/nome?nome=${nome}`);
+    return this.http.get<any[]>(`${this.API_URL}/api/games/nome?nome=${nome}`);
   }
 
   getGamesByCategoria(categoria: any){
-    return this.http.get<any[]>(`https://goodbrowsergames-ffhl.herokuapp.com/api/games/categoria?categoria=${categoria}`);
+    return this.http.get<any[]>(`${this.API_URL}/api/games/categoria?categoria=${categoria}`);
   }
 
   getGameById(id: any){
-    return this.http.get<any>(`https://goodbrowsergames-ffhl.herokuapp.com/api/games/${id}`);
+    return this.http.get<any>(`${this.API_URL}/api/games/${id}`);
+  }
+
+  getAvaliacoesByIdGame(id: any){
+    return this.http.get<any>(`${this.API_URL}/api/avaliacoesbygame/${id}`);
   }
 
   saveGame(game: any){
-    return this.http.post<any>(`https://goodbrowsergames-ffhl.herokuapp.com/api/games`, game);
+    return this.http.post<any>(`${this.API_URL}/api/games`, game);
   }
 
   updateGame(id: any, game: any){
-    return this.http.put<any>(`https://goodbrowsergames-ffhl.herokuapp.com/api/games/${id}`, game);
+    return this.http.put<any>(`${this.API_URL}/api/games/${id}`, game);
   }
 
   deleteGame(id: any){
-    return this.http.delete<any>(`https://goodbrowsergames-ffhl.herokuapp.com/api/games/${id}`);
+    return this.http.delete<any>(`${this.API_URL}/api/games/${id}`);
   }
 
 }

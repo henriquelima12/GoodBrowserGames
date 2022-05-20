@@ -1,0 +1,15 @@
+<h4 class="mt-4">
+    {{ title }}
+</h4>
+<div class="mt-4">
+    <label for="nome" class="form-label">Nome</label>
+    <input type="text" class="form-control" id="nome" [(ngModel)]="categoria.nome">
+    <div class="alert alert-danger" role="alert" *ngIf="!verifyField(categoria.nome) && sended">
+        Campo inválido. Preencha todas as informações corretamente!
+    </div>
+</div>
+<div class="col-md-12 mt-5 mb-5 d-flex justify-content-between">
+    <button type="submit" class="btn btn-secondary">Voltar</button>
+    <button type="submit" class="btn btn-primary" (click)="save()" *ngIf="!showEdit">Cadastrar</button>
+    <button type="submit" class="btn btn-primary" (click)="update(categoria.id)" *ngIf="showEdit">Atualizar</button>
+</div>

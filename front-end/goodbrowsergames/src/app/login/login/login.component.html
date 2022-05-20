@@ -1,0 +1,15 @@
+<div class="col-md-3 box-login">
+    <div class="mb-3 row">
+        <label for="username" class="form-label">Nome de usuário</label>
+        <div class="col-sm-12">
+            <input type="text" class="form-control" id="username" [(ngModel)]="username">
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label for="senha" class="form-label">Senha</label>
+        <div class="col-sm-12">
+            <input type="password" class="form-control" id="senha" [(ngModel)]="password">
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="signin()">Entrar</button>
+</div>

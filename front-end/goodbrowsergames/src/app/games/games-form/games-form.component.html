@@ -34,13 +34,10 @@
 <div class="mt-4">
     <label for="urlVideo" class="form-label">Url de vídeo</label>
     <input type="text" class="form-control" id="urlVideo" [(ngModel)]="game.urlVideo">
-    <div class="alert alert-danger" role="alert" *ngIf="!verifyField(game.urlVideo) && sended">
-        Campo inválido. Preencha todas as informações corretamente!
-    </div>
 </div>
 <div class="mt-4">
     <label for="descricao" class="form-label">Descrição</label>
-    <input type="text" class="form-control" id="descricao" [(ngModel)]="game.descricao">
+    <textarea class="form-control" placeholder="Até 250 caracteres" id="descricao" [(ngModel)]="game.descricao"></textarea>
     <div class="alert alert-danger" role="alert" *ngIf="!verifyField(game.descricao) && sended">
         Campo inválido. Preencha todas as informações corretamente!
     </div>
