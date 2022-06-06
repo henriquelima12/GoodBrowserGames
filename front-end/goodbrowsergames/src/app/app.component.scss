@@ -1,5 +1,6 @@
 a {
     color: #fff !important;
+    cursor: pointer;
 }
 .active {
     font-weight: 500;
@@ -8,7 +9,7 @@ nav {
     ul {
         li {
             a {
-                font-size: 1.2em;
+                font-size: 0.9rem;
             }
         }
     }
@@ -27,4 +28,11 @@ nav {
         cursor: pointer;
         font-weight: 600;
     }
+}
+
+.out {
+    color: #fff;
+    padding: 0 24px;
+    font-size: 1.2em;
+    cursor: pointer;
 }

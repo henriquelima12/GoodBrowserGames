@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.mack.goodbrowsergames.api.entity.Avaliacao;
@@ -35,8 +36,8 @@ public class AvaliacaoResource {
         return ResponseEntity.status(HttpStatus.OK).body(avaliacaoRepository.findById(id));
     }
 	
-	@GetMapping(value = "/api/avaliacoesbygame/{idGame}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<JSONObject>> findByIdGame(@PathVariable Long idGame){
+	@GetMapping(value = "/api/avaliacoesbygame", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<JSONObject>> findByIdGame(@RequestParam("idGame")Long idGame){
         return ResponseEntity.status(HttpStatus.OK).body(avaliacaoRepository.findByIdGame(idGame));
     }
 	
@@ -57,6 +58,7 @@ public class AvaliacaoResource {
   	      Avaliacao _avaliacao = avaliacao.get();
   	      _avaliacao.setEstrelas(avaliacaoReq.getEstrelas());
   	      _avaliacao.setTexto(avaliacaoReq.getTexto());
+  	      _avaliacao.setDataAvaliacao(avaliacaoReq.getDataAvaliacao());
   	      return new ResponseEntity<>(avaliacaoRepository.save(_avaliacao), HttpStatus.OK);
   	    } else {
   	      return new ResponseEntity<>(HttpStatus.NOT_FOUND);

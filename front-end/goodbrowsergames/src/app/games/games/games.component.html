@@ -1,3 +1,7 @@
+<div class="categories">
+  <span *ngFor="let categoria of categorias" [routerLink]="['/games/categoria', categoria.nome]">{{ categoria.nome }}</span>
+  <span [routerLink]="['/games/recomendacoes', recomendacoes]">Recomendações</span>
+</div>
 <h4 class="mt-4" *ngIf="title.length > 0">
     {{ title }}
 </h4>

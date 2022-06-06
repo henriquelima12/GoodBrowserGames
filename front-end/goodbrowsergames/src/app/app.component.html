@@ -1,32 +1,44 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/" style="font-size: 1.6rem; font-weight: 600;">GoodBrowserGames</a>
+    <a class="navbar-brand" routerLink="/" style="font-size: 1.2rem; font-weight: 600;">GoodBrowserGames</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item" routerLinkActive="active">
-          <a class="nav-link" routerLink="games/list">Meus games</a>
+        <li class="nav-item" routerLinkActive="active" *ngIf="mostrarMenu && admin">
+          <a class="nav-link" routerLink="games/list">Games</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active" *ngIf="mostrarMenu && admin">
           <a class="nav-link" routerLink="games/novo">Novo game</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active" *ngIf="mostrarMenu && admin">
           <a class="nav-link" routerLink="categorias/list">Categorias</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active" *ngIf="mostrarMenu && admin">
           <a class="nav-link" routerLink="categorias/novo">Nova categoria</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active" *ngIf="mostrarMenu && admin">
           <a class="nav-link" routerLink="membros/list">Membros</a>
         </li>
-        <li class="nav-item" routerLinkActive="active">
+        <li class="nav-item" routerLinkActive="active" *ngIf="!mostrarMenu">
           <a class="nav-link" routerLink="membros/novo">Tornar-se membro</a>
         </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="mostrarMenu" (click)="updateCadastro()">
+          <a class="nav-link">Meu cadastro</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="mostrarMenu && admin">
+          <a class="nav-link" routerLink="relatorios">Relatórios</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="mostrarMenu">
+          <a class="nav-link" routerLink="relatorios/avaliacoes-mais-uteis">Avaliações mais úteis</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" *ngIf="mostrarMenu" (click)="sair()">
+          <a class="nav-link" routerLink="login">Sair</a>
+        </li>
       </ul>
-      <div class="d-flex">
+      <div class="d-flex" *ngIf="mostrarMenu">
         <input class="form-control me-2" type="search" placeholder="Pesquisar" [(ngModel)]="nome" aria-label="Search">
         <button class="btn btn-success" [disabled]="nome.length == 0"
           [routerLink]="['/games/nome', nome]">Pesquisar</button>
@@ -34,10 +46,6 @@
     </div>
   </div>
 </nav>
-<div class="categories">
-  <span *ngFor="let categoria of categorias, let i = index" [routerLink]="['/games/categoria', categorias[i]]">{{
-    categorias[i] }}</span>
-</div>
 <div class="container">
   <router-outlet></router-outlet>
 </div>

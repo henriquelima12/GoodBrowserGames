@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RelatoriosComponent } from '../relatorios/relatorios/relatorios.component';
 import { MembrosFormComponent } from './membros-form/membros-form.component';
 import { MembrosListComponent } from './membros-list/membros-list.component';
 
@@ -15,7 +16,7 @@ const routes: Routes = [
   {
     path: ':id',
     component: MembrosFormComponent
-  },
+  }
 ];
 
 @NgModule({

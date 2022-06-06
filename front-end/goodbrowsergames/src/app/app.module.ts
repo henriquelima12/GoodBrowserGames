@@ -8,6 +8,7 @@ import { GamesModule } from './games/games.module';
 import { CategoriasModule } from './categorias/categorias.module';
 import { MembrosModule } from './membros/membros.module';
 import { LoginModule } from './login/login.module';
+import { RelatoriosModule } from './relatorios/relatorios.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { LoginModule } from './login/login.module';
     CategoriasModule,
     MembrosModule,
     LoginModule,
+    RelatoriosModule,
     FormsModule
   ],
   providers: [],

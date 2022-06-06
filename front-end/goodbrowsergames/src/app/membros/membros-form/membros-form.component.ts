@@ -21,6 +21,7 @@ export class MembrosFormComponent implements OnInit {
   sended: boolean = false;
   title: string = '';
   showEdit: boolean;
+  sameUsername: boolean = false;
 
   constructor(
     private membrosService: MembrosService,
@@ -55,7 +56,10 @@ export class MembrosFormComponent implements OnInit {
       this.membrosService.saveMembro(this.membro)
         .subscribe(
           res => {
-            this.router.navigate(['games']);
+            this.router.navigate(['']);
+          },
+          err => {
+            this.sameUsername = true;
           }
         );
     }
@@ -68,6 +72,9 @@ export class MembrosFormComponent implements OnInit {
         .subscribe(
           res => {
             this.router.navigate(['']);
+          },
+          err => {
+            this.sameUsername = true;
           }
         );
     }

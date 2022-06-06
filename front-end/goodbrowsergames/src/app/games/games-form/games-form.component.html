@@ -10,7 +10,7 @@
 </div>
 <div class="mt-4">
     <label for="categoria" class="form-label">Categoria</label>
-    <select class="form-select" [(ngModel)]="game.categoria">
+    <!-- <select class="form-select" [(ngModel)]="game.categoria">
         <option value="Strategy">Strategy</option>
         <option value="Shooter">Shooter</option>
         <option value="Puzzle">Puzzle</option>
@@ -19,6 +19,10 @@
         <option value="Sports">Sports</option>
         <option value="Action">Action</option>
         <option value="Adventure">Adventure</option>
+    </select> -->
+    <select class="form-select" [(ngModel)]="game.categoria">
+        <option value="" selected></option>
+        <option *ngFor="let categoria of categorias" [value]="categoria.nome">{{ categoria.nome }}</option>
     </select>
     <div class="alert alert-danger" role="alert" *ngIf="!verifyField(game.categoria) && sended">
         Campo inválido. Preencha todas as informações corretamente!
@@ -50,7 +54,7 @@
     </div>
 </div>
 <div class="col-md-12 mt-5 mb-5 d-flex justify-content-between">
-    <button type="submit" class="btn btn-secondary">Voltar</button>
+    <button type="submit" class="btn btn-secondary" routerLink="/">Voltar</button>
     <button type="submit" class="btn btn-primary" (click)="save()" *ngIf="!showEdit">Cadastrar</button>
     <button type="submit" class="btn btn-primary" (click)="update(game.id)" *ngIf="showEdit">Atualizar</button>
 </div>

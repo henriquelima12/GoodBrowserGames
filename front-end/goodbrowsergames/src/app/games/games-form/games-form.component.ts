@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CategoriasService } from 'src/app/categorias/categorias.service';
 import { GamesService } from '../games.service';
 
 @Component({
@@ -22,9 +23,11 @@ export class GamesFormComponent implements OnInit {
   sended: boolean = false;
   title: string = '';
   showEdit: boolean;
+  categorias: any[] = [];
 
   constructor(
     private gamesService: GamesService,
+    private categoriasService: CategoriasService,
     private route: ActivatedRoute,
     private router: Router
   ) {
@@ -48,6 +51,10 @@ export class GamesFormComponent implements OnInit {
             }
           );
       }
+    );
+
+    this.categoriasService.getCategorias().subscribe(
+      res => this.categorias = res
     );
   }
 

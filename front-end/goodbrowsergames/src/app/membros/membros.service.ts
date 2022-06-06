@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class MembrosService {
 
-  API_URL = 'http://localhost:8081';
+   API_URL = 'https://goodbrowsergames-ffhl-final.herokuapp.com';
+   //API_URL = 'http://localhost:8081';
 
   constructor(private http: HttpClient) { }
 

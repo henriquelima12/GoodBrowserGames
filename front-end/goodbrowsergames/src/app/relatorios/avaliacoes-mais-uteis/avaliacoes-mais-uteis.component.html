@@ -1,0 +1,25 @@
+<h4 class="mt-4">
+    Avaliações mais úteis
+</h4>
+<div class="table-responsive">
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Membro</th>
+                <th scope="col">Game</th>
+                <th scope="col">Texto</th>
+                <th scope="col">Estrelas</th>
+                <th scope="col">Quantidade de marcações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let avaliacao of avaliacoes">
+                <td><span>{{ avaliacao.nomeMembro.length > 20 ? avaliacao.nomeMembro.substring(0, 20).concat('...') : avaliacao.nomeMembro }}</span></td>
+                <td><span>{{ avaliacao.nomeGame.length > 20 ? avaliacao.nomeGame.substring(0, 20).concat('...') : avaliacao.nomeGame }}</span></td>
+                <td><span>{{ avaliacao.texto.length > 20 ? avaliacao.texto.substring(0, 20).concat('...') : avaliacao.texto }}</span></td>
+                <td><span>{{ avaliacao.estrelas.length > 20 ? avaliacao.estrelas.substring(0, 20).concat('...') : avaliacao.estrelas }}</span></td>
+                <td><span>{{ avaliacao.marcados.length > 20 ? avaliacao.marcados.substring(0, 20).concat('...') : avaliacao.marcados }}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

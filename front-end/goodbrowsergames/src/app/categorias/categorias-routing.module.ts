@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { RelatoriosComponent } from '../relatorios/relatorios/relatorios.component';
 import { CategoriasFormComponent } from './categorias-form/categorias-form.component';
 import { CategoriasListComponent } from './categorias-list/categorias-list.component';
 
@@ -15,7 +16,7 @@ const routes: Routes = [
   {
     path: ':id',
     component: CategoriasFormComponent
-  },
+  }
 ];
 
 @NgModule({

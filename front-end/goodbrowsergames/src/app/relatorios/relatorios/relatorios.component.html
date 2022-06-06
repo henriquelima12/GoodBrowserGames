@@ -1,0 +1,89 @@
+<h4 class="mt-4">
+    Relatórios
+</h4>
+<div class="row mt-5">
+    <div class="col-md-5">
+        <label for="tipoDeRelatorio" class="form-label">Tipo de relatório</label>
+        <select class="form-select" [(ngModel)]="tipoRelatorio">
+            <option value="gamesByAvaliacoes">Games com maior número de avaliações</option>
+            <option value="membros">Membros que mais realizaram avaliações</option>
+            <option value="gamesByNotas">Games com maior nota média</option>
+            <option value="categorias">Categorias com maior número de avaliações</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label for="dataInicial" class="form-label">Data inicial</label>
+        <input type="date" class="form-control" id="dataInicial" [(ngModel)]="dataInicial">
+    </div>
+     <div class="col-md-3">
+        <label for="dataFinal" class="form-label">Data final</label>
+        <input type="date" class="form-control" id="dataFinal" [(ngModel)]="dataFinal">
+    </div>
+    <div class="col-md-1" style="display: flex; align-items: flex-end;">
+        <button type="submit" class="btn btn-primary" (click)="selectRelatorio()">Buscar</button>
+    </div>
+</div>
+<div class="table-responsive mt-5" *ngIf="gamesByAvaliacao.length > 0 && tipoRelatorio == 'gamesByAvaliacoes'">
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Game</th>
+                <th scope="col">Quantidade de avaliações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let game of gamesByAvaliacao">
+                <td><span>{{ game.nome.length > 20 ? game.nome.substring(0, 20).concat('...') : game.nome }}</span></td>
+                <td><span>{{ game.quantidade.length > 20 ? game.quantidade.substring(0, 20).concat('...') : game.quantidade }}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="table-responsive mt-5" *ngIf="membros.length > 0 && tipoRelatorio == 'membros'">
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Membro</th>
+                <th scope="col">Quantidade de avaliações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let membro of membros">
+                <td><span>{{ membro.nome.length > 20 ? membro.nome.substring(0, 20).concat('...') : membro.nome }}</span></td>
+                <td><span>{{ membro.quantidade.length > 20 ? membro.quantidade.substring(0, 20).concat('...') : membro.quantidade }}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="table-responsive mt-5" *ngIf="gamesByNota.length > 0 && tipoRelatorio == 'gamesByNotas'">
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Game</th>
+                <th scope="col">Nota</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let game of gamesByNota">
+                <td><span>{{ game.nome.length > 20 ? game.nome.substring(0, 20).concat('...') : game.nome }}</span></td>
+                <td><span>{{ game.media.length > 20 ? game.media.substring(0, 20).concat('...') : game.media }}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="table-responsive mt-5" *ngIf="categorias.length > 0 && tipoRelatorio == 'categorias'">
+    <table class="table mt-4">
+        <thead>
+            <tr>
+                <th scope="col">Categoria</th>
+                <th scope="col">Quantidade de avaliações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let categoria of categorias">
+                <td><span>{{ categoria.nome.length > 20 ? categoria.nome.substring(0, 20).concat('...') : categoria.nome }}</span></td>
+                <td><span>{{ categoria.quantidade.length > 20 ? categoria.quantidade.substring(0, 20).concat('...') : categoria.quantidade }}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

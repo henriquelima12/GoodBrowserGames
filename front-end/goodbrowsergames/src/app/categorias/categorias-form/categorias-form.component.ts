@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoriasService } from '../categorias.service';
 
@@ -16,6 +16,7 @@ export class CategoriasFormComponent implements OnInit {
   sended: boolean = false;
   title: string = '';
   showEdit: boolean;
+  sendCategories = new EventEmitter<boolean>();
 
   constructor(
     private categoriasService: CategoriasService,

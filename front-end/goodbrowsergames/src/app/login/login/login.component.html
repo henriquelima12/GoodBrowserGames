@@ -3,13 +3,22 @@
         <label for="username" class="form-label">Nome de usuário</label>
         <div class="col-sm-12">
             <input type="text" class="form-control" id="username" [(ngModel)]="username">
+            <div class="alert alert-danger" role="alert" *ngIf="!verifyField(username) && sended">
+                Preencha todas as informações corretamente!
+            </div>
         </div>
     </div>
     <div class="mb-3 row">
         <label for="senha" class="form-label">Senha</label>
         <div class="col-sm-12">
             <input type="password" class="form-control" id="senha" [(ngModel)]="password">
+            <div class="alert alert-danger" role="alert" *ngIf="!verifyField(password) && sended">
+                Preencha todas as informações corretamente!
+            </div>
         </div>
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="incorrect">
+        Usuário ou senha incorretos!
     </div>
     <button type="button" class="btn btn-primary" (click)="signin()">Entrar</button>
 </div>

@@ -9,7 +9,7 @@
     </div>
 </div>
 <div class="col-md-12 mt-5 mb-5 d-flex justify-content-between">
-    <button type="submit" class="btn btn-secondary">Voltar</button>
+    <button type="submit" class="btn btn-secondary" routerLink="/">Voltar</button>
     <button type="submit" class="btn btn-primary" (click)="save()" *ngIf="!showEdit">Cadastrar</button>
     <button type="submit" class="btn btn-primary" (click)="update(categoria.id)" *ngIf="showEdit">Atualizar</button>
 </div>

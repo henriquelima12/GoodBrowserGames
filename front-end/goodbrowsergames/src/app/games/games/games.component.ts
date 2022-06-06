@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CategoriasService } from 'src/app/categorias/categorias.service';
 import { GamesService } from '../games.service';
 
 @Component({
@@ -11,9 +12,13 @@ export class GamesComponent implements OnInit {
 
   games: any[] = [];
   title: string = '';
+  idUser = JSON.parse(sessionStorage.getItem('idUser'));
+  categorias: any[] = [];
+  recomendacoes = 'recomendacoes';
 
   constructor(
     private gamesService: GamesService,
+    private categoriasService: CategoriasService,
     private route: ActivatedRoute
   ) { }
 
@@ -47,6 +52,20 @@ export class GamesComponent implements OnInit {
                   }
                 }
               );
+          } else if (params['recomendacoes']) {
+            this.title = "Recomendações para você";
+            this.gamesService.getRecomendacoes(this.idUser)
+              .subscribe(
+                res => {
+                  if (res.length == 0) {
+                    this.games = [];
+                    this.title = "Não foram encontradas recomendações para você no momento";
+                  } else {
+                    this.games = res;
+                    this.title = 'Recomendações para você';
+                  }
+                }
+              );
           } else {
             this.gamesService.getGames()
               .subscribe(
@@ -54,11 +73,16 @@ export class GamesComponent implements OnInit {
               );
           }
         }
-      )
+      );
+
+    this.categoriasService.getCategorias().subscribe(
+      res => this.categorias = res
+    );
   }
 
   setGame(game) {
-    sessionStorage.setItem('game', game);
+    sessionStorage.setItem('game', JSON.stringify(game));
+    sessionStorage.setItem('idGame', JSON.stringify(game.id));
   }
 
 }

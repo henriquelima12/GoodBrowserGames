@@ -1,5 +1,7 @@
 package br.mack.goodbrowsergames.api.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,5 +26,7 @@ public class Avaliacao {
     private Long idMembro;
     
     private Long idGame;
+    
+    private Date dataAvaliacao;
 	
 }

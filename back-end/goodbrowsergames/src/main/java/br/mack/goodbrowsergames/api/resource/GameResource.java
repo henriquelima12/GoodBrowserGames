@@ -55,6 +55,11 @@ public class GameResource {
         return ResponseEntity.status(HttpStatus.OK).body(gameRepository.findMaiorNota());
     }
     
+    @GetMapping("/api/games/recomendacoes")
+	public ResponseEntity<List<JSONObject>> findRecomendacoes(@RequestParam("idMembro")Long idMembro){
+        return ResponseEntity.status(HttpStatus.OK).body(gameRepository.findRecomendacoes(idMembro));
+    }
+    
     @PostMapping("/api/games")
     public ResponseEntity<Game> create(@RequestBody Game game){
     	return ResponseEntity.status(HttpStatus.CREATED).body(gameRepository.save(game));

@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriasService {
 
-  API_URL = 'http://localhost:8081';
+  API_URL = 'https://goodbrowsergames-ffhl-final.herokuapp.com';
+  //API_URL = 'http://localhost:8081';
 
   constructor(private http: HttpClient) { }
 
@@ -20,6 +21,7 @@ export class CategoriasService {
 
   saveCategoria(categoria: any){
     return this.http.post<any>(`${this.API_URL}/api/categorias`, categoria);
+
   }
 
   updateCategoria(id: any, categoria: any){

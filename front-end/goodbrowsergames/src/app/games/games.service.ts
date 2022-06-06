@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class GamesService {
 
-  API_URL = 'http://localhost:8081';
+  API_URL = 'https://goodbrowsergames-ffhl-final.herokuapp.com';
+  //API_URL = 'http://localhost:8081';
 
   constructor(private http: HttpClient) { }
 
@@ -26,8 +27,20 @@ export class GamesService {
     return this.http.get<any>(`${this.API_URL}/api/games/${id}`);
   }
 
+  saveAvaliacao(avaliacao: any) {
+    return this.http.post<any>(`${this.API_URL}/api/avaliacoes`, avaliacao);
+  }
+
+  updateAvaliacao(id: any, avaliacao: any, ) {
+    return this.http.put<any>(`${this.API_URL}/api/avaliacoes/${id}`, avaliacao);
+  }
+
   getAvaliacoesByIdGame(id: any){
-    return this.http.get<any>(`${this.API_URL}/api/avaliacoesbygame/${id}`);
+    return this.http.get<any>(`${this.API_URL}/api/avaliacoesbygame?idGame=${id}`);
+  }
+
+  getAvaliacaoById(id: any) {
+    return this.http.get<any>(`${this.API_URL}/api/avaliacoes/${id}`);
   }
 
   saveGame(game: any){
@@ -40,6 +53,18 @@ export class GamesService {
 
   deleteGame(id: any){
     return this.http.delete<any>(`${this.API_URL}/api/games/${id}`);
+  }
+
+  saveAvaliacaoUtil(avaliacaoUtil: any) {
+    return this.http.post<any>(`${this.API_URL}/api/avaliacaoutil`, avaliacaoUtil);
+  }
+
+  deleteAvaliacaoUtil(id: any) {
+    return this.http.delete<any>(`${this.API_URL}/api/avaliacaoUtil/${id}`);
+  }
+
+  getRecomendacoes(id: any){
+    return this.http.get<any>(`${this.API_URL}/api/games/recomendacoes?idMembro=${id}`);
   }
 
 }

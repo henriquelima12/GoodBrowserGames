@@ -14,6 +14,9 @@
     <div class="alert alert-danger" role="alert" *ngIf="!verifyField(membro.username) && sended">
         Campo inválido. Preencha todas as informações corretamente!
     </div>
+    <div class="alert alert-danger" role="alert" *ngIf="sameUsername">
+        Nome de usuário já existente!
+    </div>
 </div>
 <div class="mt-4">
     <label for="senha" class="form-label">Senha</label>
@@ -23,7 +26,7 @@
     </div>
 </div>
 <div class="mt-4">
-    <label for="dataNascimentoclass" class="form-label">Data de nascimento</label>
+    <label for="dataNascimento" class="form-label">Data de nascimento</label>
     <input type="date" class="form-control" id="dataNascimento" [(ngModel)]="membro.dataNascimento">
     <div class="alert alert-danger" role="alert" *ngIf="!verifyField(membro.dataNascimento) && sended">
         Campo inválido. Preencha todas as informações corretamente!
@@ -44,7 +47,7 @@
     </div>
 </div>
 <div class="col-md-12 mt-5 mb-5 d-flex justify-content-between">
-    <button type="submit" class="btn btn-secondary">Voltar</button>
+    <button type="submit" class="btn btn-secondary" routerLink="/">Voltar</button>
     <button type="submit" class="btn btn-primary" (click)="save()" *ngIf="!showEdit">Cadastrar</button>
     <button type="submit" class="btn btn-primary" (click)="update(membro.id)" *ngIf="showEdit">Atualizar</button>
 </div>

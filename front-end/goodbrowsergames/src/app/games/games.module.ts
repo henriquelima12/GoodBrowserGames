@@ -8,6 +8,7 @@ import { GamesFormComponent } from './games-form/games-form.component';
 import { GamesListComponent } from './games-list/games-list.component';
 import { GamesRoutingModule } from './games-routing.module';
 import { GamePageComponent } from './game-page/game-page.component';
+import { EditAvaliacaoComponent } from './edit-avaliacao/edit-avaliacao.component';
 
 
 
@@ -16,7 +17,8 @@ import { GamePageComponent } from './game-page/game-page.component';
     GamesComponent,
     GamesFormComponent,
     GamesListComponent,
-    GamePageComponent
+    GamePageComponent,
+    EditAvaliacaoComponent
   ],
   imports: [
     CommonModule,
